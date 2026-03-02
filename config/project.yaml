@@ -1,0 +1,42 @@
+project:
+  name: "ai-pm-hub"
+  repo: "claude-max-agent/ai-pm-hub"
+  duration_weeks: 8
+  sprint_duration_weeks: 2
+
+sprints:
+  - number: 1
+    milestone: "Sprint 1"
+    start: "2026-03-02"
+    end: "2026-03-16"
+    goal: "セットアップ・初期実装"
+
+  - number: 2
+    milestone: "Sprint 2"
+    start: "2026-03-17"
+    end: "2026-03-30"
+    goal: "コア機能実装"
+
+  - number: 3
+    milestone: "Sprint 3"
+    start: "2026-03-31"
+    end: "2026-04-13"
+    goal: "テスト・法務確認"
+
+  - number: 4
+    milestone: "Sprint 4"
+    start: "2026-04-14"
+    end: "2026-04-27"
+    goal: "仕上げ・リリース準備"
+
+notifications:
+  discord_webhook_env: "DISCORD_WEBHOOK_URL"
+  # export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+
+status_workflow:
+  - backlog
+  - todo
+  - in-progress
+  - in-review
+  - done
+  blocked_status: blocked

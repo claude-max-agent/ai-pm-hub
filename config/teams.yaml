@@ -1,0 +1,42 @@
+teams:
+  - id: dev-a
+    name: 開発チームA
+    label: team/dev-a
+    size: 4
+    domain: "フロントエンド・UI"
+    lead: null  # 後で設定
+
+  - id: dev-b
+    name: 開発チームB
+    label: team/dev-b
+    size: 4
+    domain: "バックエンド・API"
+    lead: null
+
+  - id: dev-c
+    name: 開発チームC
+    label: team/dev-c
+    size: 3
+    domain: "インフラ・データ基盤"
+    lead: null
+
+  - id: tester
+    name: テスターチーム
+    label: team/tester
+    size: 4
+    domain: "QA・テスト全般"
+    lead: null
+
+  - id: operator
+    name: オペレーターチーム
+    label: team/operator
+    size: 3
+    domain: "設定値決定・運用テスト"
+    lead: null
+
+  - id: legal
+    name: 法務チーム
+    label: team/legal
+    size: 3
+    domain: "法的確認・リスク管理・承認"
+    lead: null
