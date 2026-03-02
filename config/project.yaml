@@ -34,9 +34,10 @@ notifications:
   # export DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
 
 status_workflow:
-  - backlog
-  - todo
-  - in-progress
-  - in-review
-  - done
+  statuses:
+    - backlog
+    - todo
+    - in-progress
+    - in-review
+    - done
   blocked_status: blocked

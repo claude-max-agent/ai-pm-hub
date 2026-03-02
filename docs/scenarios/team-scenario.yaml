@@ -1,0 +1,233 @@
+# チームシナリオ定義
+# リアルな開発チームのメンバー特性を定義する
+# 会社横展開時はこのファイルを差し替えて使う
+
+project:
+  name: "かいはつしけん"
+  description: "AI駆動PMシミュレーション用プロジェクト"
+  duration_weeks: 8
+
+# ── 開発チーム（第1フェーズ対象） ────────────────────────────────
+
+teams:
+  dev-a:
+    name: "開発チームA（フロントエンド）"
+    domain: "React/TypeScript フロントエンド、UI/UX実装"
+    members:
+      - id: alice
+        name: "アリス"
+        role: "シニアエンジニア / チームリード"
+        profile: high_performer
+        traits:
+          - "タスクを期限通りに完了する"
+          - "コードレビューでチームを牽引する"
+          - "複雑な問題を自力で解決する"
+          - "後輩を積極的にサポートする"
+        velocity: high         # 1スプリントあたりの消化ポイント: 多い
+        quality: high          # 成果物の品質
+        communication: good    # 報告・相談の頻度と質
+
+      - id: bob
+        name: "ボブ"
+        role: "ミドルエンジニア"
+        profile: average
+        traits:
+          - "指示された範囲を着実にこなす"
+          - "自発的な改善提案は少ない"
+          - "問題があっても自己解決できることが多い"
+        velocity: medium
+        quality: medium
+        communication: medium
+
+      - id: charlie
+        name: "チャーリー"
+        role: "ジュニアエンジニア"
+        profile: lazy          # ← 怠惰タイプ（~5%）
+        traits:
+          - "締め切り直前にならないと動き始めない"
+          - "見積もりより実際の作業が遅れがち"
+          - "困っていても自分から相談しない"
+          - "タスクの難易度を過小評価する傾向"
+          - "スプリント終盤にインプログレスが積み上がる"
+        velocity: low
+        quality: medium        # 品質自体は悪くないが遅い
+        communication: poor    # ブロックを報告しない
+        risk_patterns:
+          - "スプリント3日前になって突然ブロックを報告"
+          - "Done率が他メンバーと比べて低い"
+
+      - id: dana
+        name: "ダナ"
+        role: "新人エンジニア（2年目）"
+        profile: incompetent   # ← 無能タイプ（~5%）
+        traits:
+          - "実装品質が低く、バグが多い"
+          - "見積もりが甘く、実際の工数が2〜3倍になる"
+          - "コードレビューでの指摘が毎回多い"
+          - "前回の指摘と同じ間違いを繰り返す"
+          - "本人は一生懸命だが成果に繋がらない"
+        velocity: low
+        quality: low           # バグ多数、手戻り多発
+        communication: medium  # 相談はする（内容が薄い）
+        risk_patterns:
+          - "PRが何度も差し戻される"
+          - "テスターから大量バグレポートが来る"
+
+  dev-b:
+    name: "開発チームB（バックエンド）"
+    domain: "Go/Python バックエンドAPI、データベース"
+    members:
+      - id: eve
+        name: "イブ"
+        role: "シニアエンジニア / チームリード"
+        profile: high_performer
+        traits:
+          - "設計力が高く、他チームへの技術サポートも行う"
+          - "スプリント内の課題を早期に察知する"
+          - "ドキュメント整備を率先して行う"
+        velocity: high
+        quality: high
+        communication: excellent
+
+      - id: frank
+        name: "フランク"
+        role: "ミドルエンジニア"
+        profile: average
+        traits:
+          - "堅実に作業をこなす"
+          - "複雑なタスクは時間がかかる"
+        velocity: medium
+        quality: medium
+        communication: medium
+
+      - id: grace
+        name: "グレース"
+        role: "シニアエンジニア（ベテラン）"
+        profile: lazy          # ← 怠惰タイプ（ベテランの怠惰は対処が難しい）
+        traits:
+          - "技術力はあるが、やる気が低下している"
+          - "最低限の仕事しかしない"
+          - "面倒なタスクを避けたがる"
+          - "レビューが遅く、他メンバーのブロッカーになる"
+          - "チームの士気に悪影響を与えることがある"
+        velocity: low          # 能力はあるのにアウトプットが少ない
+        quality: high          # 仕事はする時は良質
+        communication: poor
+        risk_patterns:
+          - "レビュー依頼が長期間放置される"
+          - "進捗更新がなく、PMが個別に確認が必要"
+
+      - id: hiro
+        name: "ヒロ"
+        role: "ミドルエンジニア"
+        profile: average
+        traits:
+          - "コツコツ型で地道に進める"
+          - "チームのムードメーカー的存在"
+        velocity: medium
+        quality: medium
+        communication: good
+
+  dev-c:
+    name: "開発チームC（インフラ・SRE）"
+    domain: "AWS/GCP インフラ構築、CI/CD、セキュリティ"
+    members:
+      - id: ivan
+        name: "イバン"
+        role: "シニアSRE / チームリード"
+        profile: high_performer
+        traits:
+          - "インシデント対応が迅速"
+          - "インフラの自動化を積極的に推進"
+          - "セキュリティへの意識が高い"
+        velocity: high
+        quality: high
+        communication: excellent
+
+      - id: julia
+        name: "ジュリア"
+        role: "ミドルSRE"
+        profile: average
+        traits:
+          - "手順書通りの作業は確実にこなす"
+          - "新しいツールの習得が少し遅め"
+        velocity: medium
+        quality: medium
+        communication: medium
+
+      - id: ken
+        name: "ケン"
+        role: "ジュニアSRE"
+        profile: incompetent   # ← 無能タイプ（努力型だが成果が出ない）
+        traits:
+          - "作業ミスが多く、インシデントに繋がることがある"
+          - "設定変更後の確認を怠る"
+          - "手順書を正確に読まない"
+          - "本人は改善しようとしているが、同じミスを繰り返す"
+          - "残業して挽回しようとするが本質的な改善に至らない"
+        velocity: low
+        quality: low
+        communication: medium
+        risk_patterns:
+          - "本番環境での設定ミス"
+          - "変更作業後のロールバックが必要になる"
+          - "テストを省略してデプロイしてしまう"
+
+# ── プロファイル定義 ────────────────────────────────────────────
+
+profiles:
+  high_performer:
+    sprint_completion_rate: 0.90  # 90%のタスクをスプリント内に完了
+    bug_rate: 0.05                # PR当たりのバグ混入率5%
+    blocker_report_delay_days: 0  # ブロック即報告
+    review_response_days: 0.5    # 半日でレビュー返却
+
+  average:
+    sprint_completion_rate: 0.70
+    bug_rate: 0.15
+    blocker_report_delay_days: 1
+    review_response_days: 1
+
+  lazy:
+    sprint_completion_rate: 0.45  # 半分以下しか完了しない
+    bug_rate: 0.20
+    blocker_report_delay_days: 3  # 3日遅れで報告
+    review_response_days: 3       # 3日レビューを放置
+
+  incompetent:
+    sprint_completion_rate: 0.40
+    bug_rate: 0.50               # PRの50%にバグ
+    blocker_report_delay_days: 1
+    review_response_days: 1
+
+# ── PMリスクシナリオ ───────────────────────────────────────────
+
+risk_scenarios:
+  - id: RS-001
+    name: "スプリント末期の突然ブロック報告"
+    trigger_member: charlie
+    sprint: "Sprint 1"
+    day_in_sprint: 12  # 14日スプリントの12日目
+    description: "チャーリーが締め切り2日前に「APIが仕様と違う」とブロックを報告"
+    pm_action_required: "残業・スコープ縮小・スプリント繰り越しの意思決定"
+
+  - id: RS-002
+    name: "連続するPR差し戻し"
+    trigger_member: dana
+    sprint: "Sprint 1"
+    description: "ダナのPRが3回連続で差し戻しになり、テスターのスプリントがブロック"
+    pm_action_required: "ペアプロ・メンタリングのアサイン・タスク再割り当て検討"
+
+  - id: RS-003
+    name: "ベテランのレビュー放置"
+    trigger_member: grace
+    sprint: "Sprint 2"
+    description: "グレースがレビュー依頼を5日間放置。2名の開発者がブロック中"
+    pm_action_required: "1on1・レビュー担当の再分配・エスカレーション検討"
+
+  - id: RS-004
+    name: "インフラミスによるステージング環境ダウン"
+    trigger_member: ken
+    sprint: "Sprint 2"
+    description: "ケンの設定変更ミスでステージング環境が4時間ダウン"
+    pm_action_required: "インシデント対応・原因分析・チェックリスト導入"
